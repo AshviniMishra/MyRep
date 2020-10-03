@@ -1,0 +1,30 @@
+ void removeDup()
+                {
+                        Node* temp=head;
+                        while(temp!=NULL)
+                        {
+
+                                Node* temp1=temp->getNext();
+                                while(temp1!=NULL)
+                                {
+                                        if(temp->getData()==temp1->getData())
+                                        {
+                                                if(temp1->getNext()==NULL)
+                                                   {
+                                                        temp->setNext(NULL);
+                                                        break;
+                                                    }
+
+                                                    else
+                                                        {
+                                                                temp1->getPrev()->setNext(temp1->getNext());
+                                                                temp1->getNext()->setPrev(temp1->getPrev());
+                                                        }
+                                        }
+                                                temp1=temp1->getNext();
+
+                                }
+                                temp=temp->getNext();
+                        }
+                }
+
